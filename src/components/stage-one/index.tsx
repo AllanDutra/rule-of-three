@@ -1,7 +1,7 @@
 import { Button } from "../button";
 import { Content } from "../content";
+import { Input } from "../input";
 import { InputContainer } from "../input-container";
-import { StyledInput } from "../input/styles";
 import { Label } from "../label";
 import { RuleOfThreeExample } from "../rule-of-three-example";
 
@@ -11,12 +11,12 @@ export function StageOne() {
       <Content>
         <InputContainer>
           <Label title="Qual a unidade de origem?" />
-          <StyledInput placeholder="Ex: Kg..." />
+          <Input autoFocus placeholder="Ex: Kg..." />
         </InputContainer>
 
         <InputContainer>
           <Label title="Qual a unidade de destino?" />
-          <StyledInput placeholder="Ex: g..." />
+          <Input placeholder="Ex: g..." />
         </InputContainer>
 
         <InputContainer>

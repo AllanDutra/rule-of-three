@@ -1,5 +1,9 @@
 import { StyledInput } from "./styles";
 
-export function Input() {
-  return <StyledInput type="text" />;
+interface IInputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+
+}
+
+export function Input({...rest}: IInputProps) {
+  return <StyledInput type="text" {...rest} />;
 }
