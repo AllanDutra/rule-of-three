@@ -14,6 +14,8 @@ export const GlobalStyle = createGlobalStyle`
         min-height: 100vh;
         
         display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     #root {
@@ -22,5 +24,8 @@ export const GlobalStyle = createGlobalStyle`
         display: flex;
         flex-direction: column;
         gap: 5.28vh;
+
+        max-height: 800px;
+        max-width: 700px;
     }
 `;
