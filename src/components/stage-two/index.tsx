@@ -28,7 +28,6 @@ export function StageTwo() {
 
             <ButtonContainer>
                 <Button title="Voltar" />
-
                 <Button title="Avançar" />
             </ButtonContainer>
         </>

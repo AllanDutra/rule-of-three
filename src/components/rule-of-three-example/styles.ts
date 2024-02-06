@@ -13,6 +13,10 @@ export const StyledRuleOfThreeExample = styled.div`
     color: white;
     font-size: 1.25em;
     letter-spacing: -2px;
+
+    &.highlighted {
+      color: #a35dff;
+    }
   }
 
   span {
