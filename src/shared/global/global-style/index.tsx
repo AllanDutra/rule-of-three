@@ -28,4 +28,12 @@ export const GlobalStyle = createGlobalStyle`
         max-height: 800px;
         max-width: 700px;
     }
+
+    input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
 `;

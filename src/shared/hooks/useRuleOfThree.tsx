@@ -6,9 +6,13 @@ interface IRuleOfThreeContextData {
 
   sourceUnit: string;
   setSourceUnit: React.Dispatch<React.SetStateAction<string>>;
-
   destinyUnit: string;
   setDestinyUnit: React.Dispatch<React.SetStateAction<string>>;
+
+  firstValue: string;
+  setFirstValue: React.Dispatch<React.SetStateAction<string>>;
+  secondValue: string;
+  setSecondValue: React.Dispatch<React.SetStateAction<string>>;
 
   handleFinish(): void;
 }
@@ -25,6 +29,9 @@ function RuleOfThreeProvider({ children }: RuleOfThreeProviderProps) {
   const [sourceUnit, setSourceUnit] = useState("");
   const [destinyUnit, setDestinyUnit] = useState("");
 
+  const [firstValue, setFirstValue] = useState("");
+  const [secondValue, setSecondValue] = useState("");
+
   function handleFinish() {
     setActiveStage(1);
     setSourceUnit("");
@@ -40,6 +47,10 @@ function RuleOfThreeProvider({ children }: RuleOfThreeProviderProps) {
         setSourceUnit,
         destinyUnit,
         setDestinyUnit,
+        firstValue,
+        setFirstValue,
+        secondValue,
+        setSecondValue,
         handleFinish,
       }}
     >
