@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useRuleOfThree } from "../../shared/hooks/useRuleOfThree";
 import { Button } from "../button";
 import { ButtonContainer } from "../button-container";
@@ -8,20 +9,62 @@ import { Label } from "../label";
 import { RuleOfThreeExample } from "../rule-of-three-example";
 
 export function StageThree() {
-  const { setActiveStage, handleFinish } = useRuleOfThree();
+  const {
+    valueToConvert,
+    setValueToConvert,
+    firstValue,
+    secondValue,
+    sourceUnit,
+    destinyUnit,
+    setActiveStage,
+    finish,
+  } = useRuleOfThree();
+
+  const result = useMemo(() => {
+    if (!valueToConvert.trim()) return "";
+
+    const firstValueAsNumber = Number.parseFloat(firstValue);
+    const secondValueAsNumber = Number.parseFloat(secondValue);
+    const valueToConvertAsNumber = Number.parseFloat(valueToConvert);
+
+    return (
+      "" + (valueToConvertAsNumber * secondValueAsNumber) / firstValueAsNumber
+    );
+  }, [valueToConvert, firstValue, secondValue]);
+
+  function handleFinish() {
+    const confirmedFinish = window.confirm(
+      `Finalizar conversões de "${sourceUnit}" para "${destinyUnit}"?`
+    );
+
+    if (confirmedFinish) return finish();
+  }
 
   return (
     <>
       <Content>
         <InputContainer>
           <Label title="Qual valor você deseja converter?" />
-          <Input autoFocus placeholder="Ex: 5..." />
+          <Input
+            type="number"
+            autoFocus
+            placeholder="Ex: 5..."
+            value={valueToConvert}
+            setValue={setValueToConvert}
+          />
         </InputContainer>
 
         <InputContainer>
           <Label title="Confira:" />
-          <RuleOfThreeExample valueOne="1 Kg" valueTwo="1000 g" />
-          <RuleOfThreeExample valueOne="5 Kg" valueTwo="5000 g" highlighted />
+          <RuleOfThreeExample
+            valueOne={`${firstValue} ${sourceUnit}`}
+            valueTwo={`${secondValue} ${destinyUnit}`}
+          />
+          <RuleOfThreeExample
+            valueOne={`${valueToConvert || "x"} ${sourceUnit}`}
+            valueTwo={`${result || "y"} ${destinyUnit}`}
+            highlighted
+          />
         </InputContainer>
       </Content>
 

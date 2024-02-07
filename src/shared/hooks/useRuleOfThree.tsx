@@ -14,7 +14,10 @@ interface IRuleOfThreeContextData {
   secondValue: string;
   setSecondValue: React.Dispatch<React.SetStateAction<string>>;
 
-  handleFinish(): void;
+  valueToConvert: string;
+  setValueToConvert: React.Dispatch<React.SetStateAction<string>>;
+
+  finish(): void;
 }
 
 type RuleOfThreeProviderProps = {
@@ -32,10 +35,15 @@ function RuleOfThreeProvider({ children }: RuleOfThreeProviderProps) {
   const [firstValue, setFirstValue] = useState("");
   const [secondValue, setSecondValue] = useState("");
 
-  function handleFinish() {
+  const [valueToConvert, setValueToConvert] = useState("");
+
+  function finish() {
     setActiveStage(1);
     setSourceUnit("");
     setDestinyUnit("");
+    setFirstValue("");
+    setSecondValue("");
+    setValueToConvert("");
   }
 
   return (
@@ -51,7 +59,9 @@ function RuleOfThreeProvider({ children }: RuleOfThreeProviderProps) {
         setFirstValue,
         secondValue,
         setSecondValue,
-        handleFinish,
+        valueToConvert,
+        setValueToConvert,
+        finish,
       }}
     >
       {children}
