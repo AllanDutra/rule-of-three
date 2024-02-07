@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledButton = styled.button`
+  cursor: pointer;
   width: 100%;
   outline: none;
   border: none;
@@ -17,12 +18,17 @@ export const StyledButton = styled.button`
   text-transform: uppercase;
   padding-top: 1.25em;
   padding-bottom: 1.4375em;
+  transition: all 0.2s;
 
   &:active {
-    transition: all 0.2s;
     box-shadow: none;
     background: #7a46bf;
     padding-top: 1.4375em;
     padding-bottom: 1.25em;
+  }
+
+  &:hover,
+  &:focus {
+    background: #703db1;
   }
 `;
