@@ -1,3 +1,4 @@
+import { useRuleOfThree } from "../../shared/hooks/useRuleOfThree";
 import { Button } from "../button";
 import { ButtonContainer } from "../button-container";
 import { Content } from "../content";
@@ -7,6 +8,8 @@ import { Label } from "../label";
 import { RuleOfThreeExample } from "../rule-of-three-example";
 
 export function StageTwo() {
+    const {setActiveStage} = useRuleOfThree();
+
     return (
         <>
             <Content>
@@ -27,8 +30,8 @@ export function StageTwo() {
             </Content>
 
             <ButtonContainer>
-                <Button title="Voltar" />
-                <Button title="Avançar" />
+                <Button title="Voltar" onClick={() => setActiveStage(1)} />
+                <Button title="Avançar" onClick={() => setActiveStage(3)} />
             </ButtonContainer>
         </>
     )

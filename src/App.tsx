@@ -1,25 +1,20 @@
+import { ActiveStage } from "./components/active-stage";
 import { AppLogo } from "./components/app-logo";
-import { StageOne } from "./components/stage-one";
-import { StageThree } from "./components/stage-three";
-import { StageTwo } from "./components/stage-two";
 import { Title } from "./components/title";
 import { GlobalStyle } from "./shared/global/global-style";
+import { RuleOfThreeProvider } from "./shared/hooks/useRuleOfThree";
 
 function App() {
   return (
-    <>
+    <RuleOfThreeProvider>
       <GlobalStyle />
 
       <AppLogo />
 
       <Title />
 
-      {/* <StageOne /> */}
-
-      {/* <StageTwo /> */}
-
-      <StageThree />
-    </>
+      <ActiveStage />
+    </RuleOfThreeProvider>
   );
 }
 

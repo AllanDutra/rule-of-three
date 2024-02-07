@@ -1,9 +1,9 @@
 import { StyledButton } from "./styles";
 
-interface IButtonProps {
+interface IButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   title: string;
 }
 
-export function Button({ title }: IButtonProps) {
-  return <StyledButton>{title}</StyledButton>;
+export function Button({ title, ...rest }: IButtonProps) {
+  return <StyledButton {...rest}>{title}</StyledButton>;
 }
